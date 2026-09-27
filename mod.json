@@ -1,0 +1,76 @@
+{
+  "geode": "v5.10.1",
+  "gd": {
+    "win": "2.2081"
+  },
+  "id": "universal.pathfinder",
+  "name": "Universal Pathfinder",
+  "version": "1.0.0",
+  "developer": "Universal Pathfinder Project",
+  "description": "Searches Geometry Dash levels by testing timed player inputs.",
+  "tags": ["gameplay", "offline", "utility"],
+  "settings": {
+    "open-menu": {
+      "type": "keybind",
+      "name": "Open Universal Pathfinder",
+      "description": "Press Left Alt during a level to open the Pathfinder menu.",
+      "default": "LeftAlt",
+      "category": "gameplay"
+    },
+    "search-title": {
+      "type": "title",
+      "name": "Search"
+    },
+    "search-speed": {
+      "type": "int",
+      "name": "Search speed",
+      "description": "Controls how many game updates the solver waits after a failed branch before restarting. Higher values retry sooner.",
+      "default": 8,
+      "min": 1,
+      "max": 10,
+      "control": { "slider": true, "slider-step": 1 }
+    },
+    "max-depth": {
+      "type": "int",
+      "name": "Maximum search depth",
+      "description": "Maximum number of timed input segments in one candidate route.",
+      "default": 12000,
+      "min": 1,
+      "max": 100000,
+      "control": { "slider": false, "input": true, "arrows": true, "arrow-step": 100 }
+    },
+    "frame-resolution": {
+      "type": "int",
+      "name": "Frame timing resolution",
+      "description": "Number of game updates in each input segment. After exhausting a coarse search, the solver halves this value down to one update.",
+      "default": 4,
+      "min": 1,
+      "max": 24,
+      "control": { "slider": true, "slider-step": 1 }
+    },
+    "max-attempts": {
+      "type": "int",
+      "name": "Maximum attempts",
+      "description": "Maximum number of full-level trials across all timing resolutions.",
+      "default": 10000,
+      "min": 1,
+      "max": 1000000,
+      "control": { "slider": false, "input": true, "arrows": true, "arrow-step": 100 }
+    },
+    "aggressiveness": {
+      "type": "int",
+      "name": "Aggressiveness",
+      "description": "Changes which input patterns the depth-first search tries first.",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "control": { "slider": true, "slider-step": 1 }
+    },
+    "save-search": {
+      "type": "bool",
+      "name": "Save search automatically",
+      "description": "Save the current frontier after branch changes and resume it when Start is pressed for the same level.",
+      "default": true
+    }
+  }
+}
