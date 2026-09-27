@@ -1,1 +1,24 @@
+name: Build Geode mod
 
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: Win64
+          sdk: given
+          path: .
+
+      - name: Upload .geode
+        uses: actions/upload-artifact@v4
+        with:
+          name: PathfinderLite-Win64
+          path: output/*.geode
